@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:wear/wear.dart';
 
+import 'counter/counter_page.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -10,12 +12,13 @@ class MyApp extends StatelessWidget {
 
   // This widget is the root of your application.
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context){
     return AmbientMode(
-      child: const Text("Hola mundo Wear"), 
+      child: const CounterPage(),
       builder: (context, mode, child){
         return MaterialApp(
-          title: 'Flutter Demo',
+          title: 'Counter wear',
+          debugShowCheckedModeBanner: false,
           theme: ThemeData(
             visualDensity: VisualDensity.compact,
             colorScheme: mode == WearMode.active
@@ -30,9 +33,8 @@ class MyApp extends StatelessWidget {
           ),
           home: child,
         );
-      },
+      }
     );
-    
   }
-}
 
+}
